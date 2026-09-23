@@ -1,0 +1,96 @@
+/* ==========================================================
+   TRAJETÓRIA + TECNOLOGIAS lado a lado.
+   Empilha no mobile, vira duas colunas a partir de 900px —
+   o ponto em que a coluna de texto ainda cabe confortável
+   dentro de ~60ch.
+=========================================================== */
+.trajetoria-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 44px;
+}
+
+.trajetoria-col {
+  min-width: 0;
+}
+
+.trajetoria-resumo {
+  max-width: 58ch;
+  color: var(--text-body);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Fatos secos, em vez de mais um parágrafo corrido */
+.trajetoria-fatos {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.trajetoria-fatos li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--border-subtle);
+}
+
+.trajetoria-fatos li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.fato-rotulo {
+  width: 92px;
+  flex-shrink: 0;
+}
+
+.fato-valor {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+/* ==========================================================
+   TECNOLOGIAS — chips em vez de lista vertical: ocupa uma
+   fração da altura e lê mais rápido.
+=========================================================== */
+.stack-grupos {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.stack-group {
+  min-width: 0;
+}
+
+.stack-label {
+  font-weight: 700;
+  margin: 0 0 10px;
+  transition: color 180ms ease;
+}
+
+.stack-group:hover .stack-label {
+  color: var(--accent-bege-ink);
+}
+
+.stack-itens {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (min-width: 900px) {
+  .trajetoria-grid {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 64px;
+  }
+}

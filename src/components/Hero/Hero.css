@@ -1,0 +1,169 @@
+.hero {
+  padding: 32px 16px 24px;
+}
+
+.terminal-window {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px 8px 4px 4px;
+  overflow: hidden;
+}
+
+.terminal-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 14px;
+  background: var(--bg-raised);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-red { background: var(--accent-red); }
+.dot-terracota { background: var(--accent-terracota); }
+.dot-bege { background: var(--accent-bege); }
+
+.terminal-title {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.terminal-body {
+  padding: 28px 20px 32px;
+}
+
+
+.terminal-prompt {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent-azul-ink);
+  margin-bottom: 10px;
+}
+
+.hero-greeting {
+  font-size: 1.9rem;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+/* ==========================================================
+   DIGITAÇÃO
+   As duas camadas ocupam a MESMA célula de grid: o fantasma
+   (invisível, com a frase inteira e o cursor) define a caixa,
+   o texto visível é desenhado em cima. É o que garante que
+   nada abaixo do h1 se mexa enquanto a frase cresce, inclusive
+   quando ela quebra em duas linhas no mobile.
+=========================================================== */
+.digitacao {
+  display: grid;
+}
+
+.digitacao-fantasma,
+.digitacao-texto {
+  grid-area: 1 / 1;
+}
+
+.digitacao-fantasma {
+  visibility: hidden;
+}
+
+/* Enquanto digita o cursor fica sólido, como num terminal de
+   verdade; só volta a piscar quando a frase termina. */
+.cursor {
+  display: inline-block;
+  color: var(--accent-red);
+  margin-left: 2px;
+}
+
+.cursor-piscando {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-piscando { animation: none; }
+}
+
+.hero-role {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--accent-terracota-ink);
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+.hero-desc {
+  margin-top: 18px;
+  max-width: 66ch;
+  color: var(--text-primary);
+  font-size: 1.02rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+/* ==========================================================
+   DIVISOR + ATALHOS SOCIAIS
+   Fecham a janela do terminal: uma régua fina e dois ícones
+   pra quem quer ir direto ao perfil sem rolar até o rodapé.
+   O <hr> é elemento semântico de separação — por isso não é
+   uma <div> com borda.
+=========================================================== */
+.hero-divisor {
+  height: 0;
+  margin: 26px 0 18px;
+  border: 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.hero-social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* a janela de terminal também reage ao mouse, de leve */
+.terminal-window {
+  transition: border-color 250ms ease, box-shadow 250ms ease;
+}
+
+.terminal-window:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 18px 44px var(--shadow-soft);
+}
+
+@media (min-width: 640px) {
+  .hero { padding: 56px 32px 40px; }
+  .terminal-body { padding: 36px 32px 40px; }
+  .hero-greeting { font-size: 2.4rem; }
+}

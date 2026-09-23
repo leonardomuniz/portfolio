@@ -1,0 +1,194 @@
+/* O card usa --tl-gap e --tl-x, definidas no .job-list (Experiencia.css):
+   a geometria da linha do tempo é de quem desenha a lista. */
+.job-card {
+  --card-pad: 18px;
+  --card-pad-x: 20px;
+  --card-borda: 1px;
+  /* Distância da borda esquerda do CONTEÚDO do card até o centro
+     da linha. O conteúdo começa depois da borda e do padding
+     HORIZONTAL — usar --card-pad aqui (que é o vertical) e
+     esquecer a borda jogava anel e ponto à direita da linha. */
+  --tl-offset: calc(
+    var(--card-borda) + var(--card-pad-x) + var(--tl-gap) - var(--tl-x)
+  );
+
+  /* fundo, borda e hover vêm do <Card> (_shared/Card) */
+  padding: var(--card-pad) var(--card-pad-x);
+}
+
+.job-header {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* anel da empresa na linha do tempo */
+.job-header::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: calc(0px - var(--tl-offset) - 8px);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg-base);
+  border: 2px solid var(--accent-azul-ink);
+  transition: border-color 200ms ease, background 200ms ease, box-shadow 200ms ease;
+}
+
+.job-card:hover .job-header::before {
+  background: var(--accent-terracota-ink);
+  border-color: var(--accent-terracota-ink);
+  box-shadow: 0 0 0 5px rgba(193, 122, 78, 0.16);
+}
+
+.job-empresa {
+  font-size: 1rem;
+  color: var(--text-primary);
+  transition: color 200ms ease;
+}
+
+.job-card:hover .job-empresa {
+  color: var(--accent-bege-ink);
+}
+
+.job-duracao {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  background: var(--accent-bege);
+  padding: 3px 8px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.job-local {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* Um bloco por cargo dentro da mesma empresa. O segundo em diante
+   ganha um filete acima pra separar as passagens sem virar outro card. */
+.job-cargo-bloco {
+  position: relative;
+  margin-top: 22px;
+}
+
+.job-cargo-bloco + .job-cargo-bloco {
+  padding-top: 20px;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+/* ponto cheio do cargo na linha do tempo */
+.job-cargo-bloco::before {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: calc(0px - var(--tl-offset) - 4px);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--icon-idle);
+  transition: background 200ms ease, transform 200ms ease;
+}
+
+.job-cargo-bloco + .job-cargo-bloco::before {
+  top: 27px;
+}
+
+.job-card:hover .job-cargo-bloco::before {
+  background: var(--accent-terracota-ink);
+  transform: scale(1.3);
+}
+
+.job-cargo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--accent-terracota-ink);
+  margin: 0;
+}
+
+.job-periodo {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.job-destaques {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.job-destaques li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 0.92rem;
+  color: var(--text-body);
+  transition: color 160ms ease;
+}
+
+.job-destaques li:hover {
+  color: var(--text-primary);
+}
+
+/* Bolinha, não seta. O `top` em em acompanha o tamanho da
+   fonte e centraliza o ponto na primeira linha do texto. */
+.job-destaques li::before {
+  content: '';
+  position: absolute;
+  left: 1px;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-azul-ink);
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.job-destaques li:hover::before {
+  background: var(--accent-terracota-ink);
+  transform: scale(1.35);
+}
+
+.job-stack {
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  transition: color 200ms ease;
+}
+
+.job-card:hover .job-stack {
+  color: var(--text-hint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .job-destaques li::before,
+  .job-cargo-bloco::before,
+  .job-card:hover .job-cargo-bloco::before,
+  .job-destaques li:hover::before {
+    transform: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .job-card {
+    --card-pad: 24px;
+    --card-pad-x: 28px;
+  }
+}

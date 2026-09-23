@@ -1,0 +1,22 @@
+.chip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 3px;
+  padding: 6px 11px;
+  cursor: default;
+  transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.chip:hover {
+  color: var(--accent-terracota-ink);
+  border-color: var(--accent-terracota-ink);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip:hover { transform: none; }
+}

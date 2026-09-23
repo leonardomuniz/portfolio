@@ -1,0 +1,186 @@
+/* ==========================================================
+   VARIÁVEIS / PALETA
+   A paleta de marca (accents + os dois extremos de texto) é
+   fixa e não muda com o tema. O que muda são os TOKENS de
+   tema logo abaixo — fundo, superfícies, bordas, os cinzas de
+   texto e as sombras. Componente nenhum escreve hex direto:
+   tudo puxa daqui, então um tema novo é só mais um bloco.
+=========================================================== */
+:root {
+  --accent-red: #C9463A;
+  --accent-terracota: #C17A4E;
+  --accent-bege: #D9C9A3;
+  --accent-azul: #4C7A93;
+
+  /* extremos fixos: texto que vai EM CIMA de accent, não no fundo */
+  --text-light: #F2ECE1;
+  --text-dark: #1B1F24;
+
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --max-width: 1040px;
+}
+
+/* ==========================================================
+   TEMA ESCURO — o padrão, e a identidade da página.
+   Os valores são exatamente os de antes; só mudaram de nome.
+   O `-ink` de cada accent é a versão própria para TEXTO: no
+   escuro ele é o accent puro, no claro é uma variante mais
+   fechada, porque o accent puro sobre fundo claro não passa
+   em contraste (terracota fica em 2.9:1, azul em 4.0:1).
+=========================================================== */
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg-base: #0B0F14;
+  --bg-surface: #131A21;
+  --bg-raised: #0E141A;
+  --surface-hover: #161E27;
+
+  --border-subtle: #232D37;
+  --border-strong: #2E3A45;
+
+  --text-primary: var(--text-light);
+  --text-body: #C6CED5;
+  --text-muted: #6B7680;
+  --text-faint: #55606A;
+  --text-hint: #8A96A1;
+  --icon-idle: #3A444E;
+
+  --accent-red-ink: var(--accent-red);
+  --accent-azul-ink: var(--accent-azul);
+  --accent-terracota-ink: var(--accent-terracota);
+  --accent-bege-ink: var(--accent-bege);
+
+  --focus-ring: var(--accent-bege);
+  --navbar-bg: rgba(11, 15, 20, 0.92);
+
+  --shadow-card: rgba(0, 0, 0, 0.38);
+  --shadow-soft: rgba(0, 0, 0, 0.35);
+  --shadow-strong: rgba(0, 0, 0, 0.45);
+}
+
+/* ==========================================================
+   TEMA CLARO
+   Não é branco: o fundo é o mesmo creme #F2ECE1 que serve de
+   texto no escuro, e as superfícies sobem a partir dele. Os
+   cinzas viram cinzas quentes pra não brigar com o creme.
+=========================================================== */
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --bg-base: #F2ECE1;
+  --bg-surface: #FBF7F0;
+  --bg-raised: #E9E1D3;
+  --surface-hover: #FFFFFF;
+
+  --border-subtle: #DED4C2;
+  --border-strong: #C6B89F;
+
+  --text-primary: var(--text-dark);
+  --text-body: #3D444C;
+  --text-muted: #5C544A;
+  --text-faint: #6E6558;
+  --text-hint: #453F36;
+  --icon-idle: #B0A48D;
+
+  --accent-red-ink: #A62F26;
+  --accent-azul-ink: #2E566B;
+  --accent-terracota-ink: #8A4A24;
+  --accent-bege-ink: #7A6430;
+
+  --focus-ring: #2E566B;
+  --navbar-bg: rgba(242, 236, 225, 0.92);
+
+  --shadow-card: rgba(58, 45, 28, 0.16);
+  --shadow-soft: rgba(58, 45, 28, 0.13);
+  --shadow-strong: rgba(58, 45, 28, 0.22);
+}
+
+/* ==========================================================
+   RESET BÁSICO
+=========================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ==========================================================
+   TROCA DE TEMA
+   A classe entra e sai em utils/tema.js, só no instante do
+   clique. Fora dela ninguém tem transição de cor, então nada
+   anima no carregamento nem briga com os hovers; durante ela,
+   fundo, bordas e texto atravessam juntos em vez de o body
+   deslizar e os cards estalarem.
+=========================================================== */
+:root.trocando-tema,
+:root.trocando-tema *,
+:root.trocando-tema *::before,
+:root.trocando-tema *::after {
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease,
+    box-shadow 200ms ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root.trocando-tema,
+  :root.trocando-tema *,
+  :root.trocando-tema *::before,
+  :root.trocando-tema *::after {
+    transition: none !important;
+  }
+}
+
+/* Foco de teclado sempre visível — o anel muda de cor por tema,
+   senão o bege some sobre o creme do claro. */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  margin: 0;
+}
+
+p { margin: 0; }
+
+/* ==========================================================
+   LAYOUT COMUM DE SEÇÃO — reutilizado pelos componentes
+=========================================================== */
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 64px 16px;
+  scroll-margin-top: 64px;
+}
+
+@media (min-width: 640px) {
+  .section { padding: 80px 32px; }
+}

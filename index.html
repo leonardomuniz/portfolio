@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leonardo Campos Muniz — Desenvolvedor Back-end</title>
+  <meta name="description"
+    content="Portfólio de Leonardo Campos Muniz, desenvolvedor back-end com mais de 4 anos em Node.js.">
+  <meta name="theme-color" content="#0B0F14">
+  <meta property="og:type" content="website">
+  <!-- <meta property="og:url" content="https://www.seusite.com.br/"> -->
+  <meta property="og:title" content="Léo Muniz | Desenvolvedor Back-end">
+  <meta property="og:description"
+    content="Portfólio de Léo Muniz, desenvolvedor back-end com mais de 4 anos em Node.js.">
+  <!-- <meta property="og:image" content="https://www.seusite.com.br/imagem-destaque.jpg"> -->
+  <meta property="og:site_name" content="Portfólio - Léo Muniz">
+  <meta property="og:locale" content="pt_BR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- <meta name="twitter:url" content="https://www.seusite.com.br/"> -->
+  <meta name="twitter:title" content="Leonardo Campos Muniz | Desenvolvedor Back-end">
+  <meta name="twitter:description"
+    content="Portfólio de Leonardo Campos Muniz, desenvolvedor back-end com mais de 4 anos em Node.js.">
+  <!-- <meta name="twitter:image" content="https://www.seusite.com.br/imagem-destaque.jpg"> -->
+  <!-- Tema antes da primeira pintura: sem isso a página nasce
+       escura e pisca pra clara em quem prefere o tema claro.
+       Roda inline de propósito — precisa ser síncrono e vir
+       antes do CSS. Quem já clicou no botão manda; senão,
+       vale a preferência do sistema. -->
+  <script>
+    (function () {
+      var tema = 'dark'
+      try {
+        var salvo = localStorage.getItem('tema')
+        if (salvo === 'light' || salvo === 'dark') {
+          tema = salvo
+        } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+          tema = 'light'
+        }
+      } catch (e) {
+        /* storage bloqueado: fica no escuro, que é o padrão */
+      }
+      document.documentElement.dataset.theme = tema
+      if (tema === 'light') {
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#F2ECE1')
+      }
+    })()
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;700&family=IBM+Plex+Sans:wght@400;500&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

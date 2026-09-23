@@ -1,0 +1,48 @@
+.btn {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 3px;
+  display: inline-block;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  /* fundo levemente escurecido em relação a --accent-red para
+     garantir contraste AA (4.5:1) com o texto claro em cima */
+  background: color-mix(in srgb, var(--accent-red) 88%, black);
+  color: var(--text-light);
+}
+
+.btn-primary:hover {
+  background: var(--accent-red);
+  box-shadow: 0 8px 20px rgba(201, 70, 58, 0.28);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--accent-terracota-ink);
+  color: var(--accent-terracota-ink);
+}
+
+.btn-outline:hover {
+  background: var(--accent-terracota);
+  color: var(--text-dark);
+  box-shadow: 0 8px 20px rgba(193, 122, 78, 0.24);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover, .btn:active { transform: none; }
+}

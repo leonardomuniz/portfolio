@@ -1,0 +1,43 @@
+/* ==========================================================
+   TIMELINE
+   A linha vertical vive no .job-list; cada empresa marca um
+   anel na linha e cada cargo marca um ponto cheio. Os marcadores
+   ficam fora da caixa do card, então as posições saem de
+   --tl-gap / --tl-x (geometria da linha) e --card-pad (padding
+   do card) — mexeu em um, o resto se ajusta sozinho.
+=========================================================== */
+.job-list {
+  --tl-gap: 26px;
+  --tl-x: 7px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 var(--tl-gap);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.job-list::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--tl-x) - 1px);
+  top: 12px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--accent-azul-ink) 0%,
+    var(--border-subtle) 22%,
+    var(--border-subtle) 82%,
+    transparent 100%
+  );
+}
+
+@media (min-width: 640px) {
+  .job-list {
+    --tl-gap: 34px;
+    --tl-x: 9px;
+  }
+}

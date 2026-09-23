@@ -1,0 +1,15 @@
+.section-title {
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+/* resquício de código: só um `//` discreto, sem comando falso */
+.section-prompt {
+  color: var(--accent-azul-ink);
+  font-weight: 400;
+  font-size: 0.95rem;
+}

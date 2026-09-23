@@ -1,0 +1,199 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--navbar-bg);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.navbar-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar-brand {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.navbar-brand:hover {
+  color: var(--accent-terracota-ink);
+}
+
+/* Botões da direita: tema sempre visível, menu só no mobile. */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.navbar-toggle {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  padding: 6px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+
+.navbar-toggle:hover {
+  border-color: var(--accent-terracota-ink);
+  color: var(--accent-terracota-ink);
+}
+
+@media (min-width: 640px) {
+  .navbar-toggle { display: none; }
+}
+
+/* ==========================================================
+   BOTÃO DE IDIOMA
+   Mostra o código do idioma de DESTINO ("EN" quando a página
+   está em português). Mesma altura do botão de tema pra os
+   dois alinharem na linha da navbar.
+=========================================================== */
+.idioma-toggle {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 9px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.idioma-toggle:hover {
+  border-color: var(--accent-bege-ink);
+  color: var(--accent-bege-ink);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .idioma-toggle:hover { transform: none; }
+}
+
+/* ==========================================================
+   BOTÃO DE TEMA
+   Quadrado, do mesmo tamanho do botão de menu. O ícone é o do
+   tema de destino (sol no escuro, lua no claro) e gira de leve
+   no hover — mesma gramática de movimento do resto da página.
+=========================================================== */
+.tema-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.tema-toggle:hover {
+  border-color: var(--accent-bege-ink);
+  color: var(--accent-bege-ink);
+  transform: translateY(-2px);
+}
+
+.tema-icone {
+  width: 16px;
+  height: 16px;
+  display: block;
+  transition: transform 220ms ease;
+}
+
+.tema-toggle:hover .tema-icone {
+  transform: rotate(-18deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tema-toggle:hover,
+  .tema-toggle:hover .tema-icone {
+    transform: none;
+  }
+}
+
+.navbar-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 8px 16px 16px;
+}
+
+.navbar-links.is-open {
+  display: flex;
+}
+
+.navbar-links a {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 10px 4px;
+  border-bottom: 1px dashed var(--border-subtle);
+  transition: color 160ms ease;
+}
+
+.navbar-links a:hover {
+  color: var(--accent-terracota-ink);
+}
+
+@media (min-width: 640px) {
+  .navbar-links {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    background: transparent;
+    border-bottom: none;
+    padding: 0;
+    gap: 28px;
+    margin-left: auto;
+  }
+
+  .navbar-links a {
+    padding: 0;
+    border-bottom: none;
+  }
+
+  /* no desktop os links já empurraram tudo pra direita */
+  .navbar-actions { margin-left: 0; }
+}

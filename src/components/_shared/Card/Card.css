@@ -1,0 +1,23 @@
+.card {
+  --card-cor: var(--accent-azul-ink);
+
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 3px;
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    background 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--card-cor);
+  background: var(--surface-hover);
+  box-shadow: 0 14px 32px var(--shadow-card);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover { transform: none; }
+}
