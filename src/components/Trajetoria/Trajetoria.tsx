@@ -1,6 +1,7 @@
 import SectionTitle from '../_shared/SectionTitle/SectionTitle'
 import Chip from '../_shared/Chip/Chip'
 import Rotulo from '../_shared/Rotulo/Rotulo'
+import TextoDestacado from '../_shared/TextoDestacado/TextoDestacado'
 import { stack } from '../../data/stack'
 import { useIdioma } from '../../i18n/idioma'
 import './Trajetoria.css'
@@ -17,7 +18,7 @@ function Trajetoria() {
 
           <div className="trajetoria-resumo">
             {t.paragrafos.map((paragrafo) => (
-              <p key={paragrafo.slice(0, 24)}>{paragrafo}</p>
+              <p key={paragrafo.slice(0, 24)}><TextoDestacado>{paragrafo}</TextoDestacado></p>
             ))}
           </div>
 

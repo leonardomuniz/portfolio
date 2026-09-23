@@ -1,3 +1,4 @@
+import TextoDestacado from '../_shared/TextoDestacado/TextoDestacado'
 import { useDigitacao } from '../../hooks/useDigitacao'
 import { useIdioma } from '../../i18n/idioma'
 import { canalPorId } from '../../data/contato'
@@ -53,7 +54,7 @@ function Hero() {
 
           <p className="hero-role">{textos.hero.cargo}</p>
 
-          <p className="hero-desc">{textos.hero.descricao}</p>
+          <p className="hero-desc"><TextoDestacado>{textos.hero.descricao}</TextoDestacado></p>
 
           <div className="hero-actions">
             <Button href="#contato">{textos.hero.faleComigo}</Button>

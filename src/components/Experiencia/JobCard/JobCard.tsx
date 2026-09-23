@@ -1,3 +1,4 @@
+import TextoDestacado from '../../_shared/TextoDestacado/TextoDestacado'
 import Card from '../../_shared/Card/Card'
 import { useIdioma } from '../../../i18n/idioma'
 import { formatMesAno, formatDuracao } from '../../../utils/periodo'
@@ -48,7 +49,7 @@ function JobCard({ job }: JobCardProps) {
 
           <ul className="job-destaques">
             {c.destaques[idioma].map((destaque) => (
-              <li key={destaque}>{destaque}</li>
+              <li key={destaque}><TextoDestacado>{destaque}</TextoDestacado></li>
             ))}
           </ul>
         </div>
