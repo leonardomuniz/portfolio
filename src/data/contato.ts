@@ -17,7 +17,9 @@ const WHATSAPP = '5561985553989'
 export const canais: Canal[] = [
   {
     id: 'whatsapp',
-    valor: '+55 (61) 98555-3989',
+    // Sem o número à vista: a página é indexada e o número em texto
+    // vira alvo de scraper. O link wa.me continua abrindo a conversa.
+    valor: { pt: 'me mande uma mensagem', en: 'send me a message' },
     href: `https://wa.me/${WHATSAPP}`,
     externo: true,
   },
