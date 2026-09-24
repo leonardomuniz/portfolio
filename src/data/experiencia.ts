@@ -56,7 +56,7 @@ export const experiencia: EmpresaExperiencia[] = [
   {
     empresa: 'Stefanini Brasil',
     local: { pt: 'Brasília · Remoto', en: 'Brasília · Remote' },
-    stack: ['Node.js', 'TypeScript', 'Java', 'Spring', 'AWS', 'DynamoDB', 'Terraform', 'Angular', 'Jest', 'JUnit'],
+    stack: ['Node.js', 'TypeScript', 'AWS', 'DynamoDB', 'Terraform', 'Angular', 'Jest', 'Java', 'Spring', 'JUnit'],
     cargos: [
       {
         cargo: {

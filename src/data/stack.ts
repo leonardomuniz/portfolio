@@ -19,7 +19,7 @@ export const stack: StackGrupo[] = [
   {
     id: 'frameworks',
     categoria: { pt: 'frameworks', en: 'frameworks' },
-    itens: ['Spring Boot', 'Express', 'Nest.js'],
+    itens: ['Express', 'Nest.js', 'Spring Boot'],
   },
   {
     id: 'front-end',

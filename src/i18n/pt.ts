@@ -11,7 +11,7 @@ export const pt = {
   meta: {
     titulo: 'Léo Muniz — Desenvolvedor Back-end',
     descricao:
-      'Portfólio de Léo Muniz, desenvolvedor back-end com mais de 4 anos em Node.js e Java.',
+      'Portfólio de Léo Muniz, desenvolvedor back-end com mais de 4 anos em Node.js.',
   },
 
   navbar: {

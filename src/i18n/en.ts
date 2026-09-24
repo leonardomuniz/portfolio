@@ -9,7 +9,7 @@ export const en = {
   meta: {
     titulo: 'Léo Muniz — Back-end Developer',
     descricao:
-      'Portfolio of Léo Muniz, a back-end developer with 4+ years in Node.js and Java.',
+      'Portfolio of Léo Muniz, a back-end developer with 4+ years in Node.js.',
   },
 
   navbar: {
