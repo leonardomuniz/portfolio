@@ -78,7 +78,7 @@ export const experiencia: EmpresaExperiencia[] = [
             "Worked on modernizing Ford's payment engine — the financing system used with dealerships — helping translate business rules from a mainframe into a system that serves all of Brazil.",
             'Developed the international payment engine on a microservices architecture, implementing the Lambdas that handled the transactions (AWS Lambda and DynamoDB).',
             "Delivered PIX payment support in record time, from design through to following sign-off and rollout in the client's production environments.",
-            'Owned 15% of a suite of more than **1.500 unit tests** (Node.js, TypeScript, Jest), keeping releases stable in production.',
+            'Owned 15% of a suite of more than **1,500 unit tests** (Node.js, TypeScript, Jest), keeping releases stable in production.',
           ],
         },
       },

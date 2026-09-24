@@ -13,12 +13,12 @@ export const en = {
   },
 
   navbar: {
-    trajetoria: 'Background',
-    experiencia: 'Experience',
-    projetos: 'Projects',
-    contato: 'Contact',
-    menu: 'Menu',
-    fechar: 'Close',
+    trajetoria: 'background',
+    experiencia: 'experience',
+    projetos: 'projects',
+    contato: 'contact',
+    menu: 'menu',
+    fechar: 'close',
     trocarIdioma: 'Switch to Portuguese',
     temaClaro: 'Switch to the light theme',
     temaEscuro: 'Switch to the dark theme',
@@ -42,7 +42,7 @@ export const en = {
     paragrafos: [
       'I joined Stefanini in 2022 as a junior and left as a mid-level developer, ' +
         'working on a checkout that serves **more than 20 million** people and on ' +
-        "Ford's credit engine, translated from a mainframe. At Poder360 I came in " +
+        "Ford's payment engine, translated from a mainframe. At Poder360 I came in " +
         'as a senior and took over technical leadership of a squad of 4.',
       'The pattern repeats: a system already in production, slow or hard to evolve, ' +
         "that has to stay up while it's rebuilt. That's the kind of problem I like " +
@@ -66,7 +66,7 @@ export const en = {
   },
 
   contato: {
-    titulo: 'Get in touch',
+    titulo: 'Get in Touch',
     intro: 'Direct channels — I answer quickly on all of them.',
     copiado: '{canal} copied',
     canais: {

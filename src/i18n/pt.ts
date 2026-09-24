@@ -43,7 +43,7 @@ export const pt = {
     tituloStack: 'Tecnologias',
     paragrafos: [
       'Entrei na Stefanini em 2022 como júnior e saí como pleno, passando por um ' +
-        'checkout que atende **mais de 20 milhões** de pessoas e pelo motor de crédito ' +
+        'checkout que atende **mais de 20 milhões** de pessoas e pelo motor de pagamentos ' +
         'da Ford, traduzido de um mainframe. No Poder360, cheguei como sênior e ' +
         'assumi a liderança técnica de uma squad de 4 pessoas.',
       'O padrão se repete: um sistema que já está em produção, lento ou difícil de ' +
