@@ -58,7 +58,7 @@ function Hero() {
 
           <div className="hero-actions">
             <Button href="#contato">{textos.hero.faleComigo}</Button>
-            <Button href="/Leonardo C. Muniz - curriculo.pdf" variant="outline" download>
+            <Button href={textos.hero.curriculo} variant="outline" download>
               {textos.hero.baixarCurriculo}
             </Button>
           </div>

@@ -36,6 +36,7 @@ export const pt = {
       'manter, e devolver ele rápido, testado e pronto pra durar.',
     faleComigo: 'Fale Comigo',
     baixarCurriculo: 'Baixar Currículo',
+    curriculo: '/curriculo-leonardo-muniz-pt.pdf',
   },
 
   trajetoria: {

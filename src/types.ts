@@ -32,6 +32,8 @@ export interface Textos {
     descricao: string
     faleComigo: string
     baixarCurriculo: string
+    /** Caminho do PDF em public/, um por idioma. */
+    curriculo: string
   }
   trajetoria: {
     titulo: string

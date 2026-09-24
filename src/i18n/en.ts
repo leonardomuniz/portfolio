@@ -34,6 +34,7 @@ export const en = {
       'back fast, tested and built to last.',
     faleComigo: 'Get in Touch',
     baixarCurriculo: 'Download Resume',
+    curriculo: '/curriculo-leonardo-muniz-en.pdf',
   },
 
   trajetoria: {
