@@ -41,7 +41,7 @@ function ProjetoJanela({ projeto }: ProjetoJanelaProps) {
       )}
 
       <div className="projeto-corpo">
-        <h4 className="projeto-titulo">{projeto.nome}</h4>
+        <h3 className="projeto-titulo">{projeto.nome}</h3>
 
         <p className="projeto-descricao">{projeto.descricao[idioma]}</p>
         <p className="projeto-papel">
