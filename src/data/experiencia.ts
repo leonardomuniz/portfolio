@@ -11,7 +11,7 @@
 //
 // Datas no formato 'AAAA-MM'. fim: null quando for o cargo
 // atual (mostra "atual"/"present" e segue contando o tempo
-// sozinho). A duração é calculada em src/utils/periodo.js —
+// sozinho). A duração é calculada em src/utils/periodo.ts —
 // não precisa escrever o tempo de experiência manualmente.
 //
 // Ordem: mais recente primeiro, tanto nas empresas quanto

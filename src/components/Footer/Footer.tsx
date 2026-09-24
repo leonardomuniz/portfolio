@@ -10,7 +10,7 @@ import './Footer.css'
 
 const TOAST_MS = 1900
 
-// Endereços e comportamento vêm de data/contato.js; aqui fica
+// Endereços e comportamento vêm de data/contato.ts; aqui fica
 // só o ícone de cada canal, que é coisa de apresentação.
 const ICONES: Record<CanalId, typeof WhatsappIcon> = {
   whatsapp: WhatsappIcon,

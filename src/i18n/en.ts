@@ -1,6 +1,6 @@
 // ==========================================================
 // TEXTS — English
-// Mirror of pt.js: same keys, same shape — there is no
+// Mirror of pt.ts: same keys, same shape — there is no
 // fallback layer, so a missing key renders as undefined.
 // ==========================================================
 import type { Textos } from '../types'

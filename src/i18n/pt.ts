@@ -3,7 +3,7 @@
 // Só cópia de interface. O que é conteúdo estruturado (empresas,
 // cargos, destaques, categorias de stack) mora em src/data com
 // as duas línguas lado a lado, pra não duplicar datas e ordem.
-// Toda chave daqui tem que existir igual em en.js.
+// Toda chave daqui tem que existir igual em en.ts.
 // ==========================================================
 import type { Textos } from '../types'
 
