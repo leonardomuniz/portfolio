@@ -1,0 +1,21 @@
+.projeto-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+@media (min-width: 960px) {
+  .projeto-lista {
+    grid-template-columns: repeat(3, 1fr);
+    /* Escapa do container da seção para ficar mais largo que o resto. */
+    width: min(1320px, calc(100vw - 64px));
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    /* Uma linha por bloco do card; os cards herdam via subgrid e alinham entre si. */
+    grid-template-rows: repeat(7, auto);
+  }
+}

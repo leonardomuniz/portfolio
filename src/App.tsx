@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
 import Trajetoria from './components/Trajetoria/Trajetoria'
 import Experiencia from './components/Experiencia/Experiencia'
+import Projetos from './components/Projetos/Projetos'
 import Footer from './components/Footer/Footer'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <main>
         <Trajetoria />
         <Experiencia />
+        <Projetos />
       </main>
       <Footer />
     </IdiomaProvider>

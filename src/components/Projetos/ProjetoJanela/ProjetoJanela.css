@@ -1,0 +1,153 @@
+.projeto {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px 8px 4px 4px;
+  overflow: hidden;
+  transition: border-color 250ms ease, box-shadow 250ms ease, transform 250ms ease;
+}
+
+.projeto {
+  display: flex;
+  flex-direction: column;
+}
+
+.projeto:hover {
+  transform: scale(1.05);
+  border-color: var(--border-strong);
+  box-shadow: 0 18px 44px var(--shadow-soft);
+}
+
+/* ---------- barra de título ---------- */
+.projeto-barra {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin: 0;
+  padding: 10px 14px;
+  background: var(--bg-raised);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+.projeto-barra {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.projeto-dots {
+  display: flex;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.projeto-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.projeto-dot-red { background: var(--accent-red); }
+.projeto-dot-terracota { background: var(--accent-terracota); }
+.projeto-dot-bege { background: var(--accent-bege); }
+
+.projeto-empresa {
+  color: var(--text-body);
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+/* ---------- corpo ---------- */
+.projeto-corpo {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.projeto-titulo {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.projeto-descricao {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.projeto-papel {
+  margin: 0;
+  color: var(--text-body);
+}
+
+.projeto-imagem {
+  width: 100%;
+  border-bottom: 1px solid var(--border-subtle);
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+}
+
+.projeto-imagem.is-conter { object-fit: contain; }
+.projeto-stack,
+.projeto-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.projeto-stack { margin-top: auto; }
+
+.projeto-links { gap: 8px 20px; }
+
+.projeto-links a {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent-terracota-ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 160ms ease;
+}
+
+.projeto-links a:hover { border-bottom-color: currentColor; }
+
+.projeto-links a:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+/* No desktop os cards compartilham as linhas da lista (subgrid), então
+   barra, imagem, título, textos, stack e links ficam alinhados entre eles. */
+@media (min-width: 960px) {
+  .projeto {
+    display: grid;
+    grid-row: span 7;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+  }
+
+  .projeto-corpo {
+    display: grid;
+    grid-row: span 5;
+    grid-template-rows: subgrid;
+    row-gap: 14px;
+    align-content: stretch;
+  }
+
+  .projeto-stack { margin-top: 0; align-content: end; }
+  .projeto-links { align-content: end; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projeto:hover { transform: none; }
+}

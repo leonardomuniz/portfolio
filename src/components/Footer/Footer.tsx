@@ -25,7 +25,7 @@ interface Toast {
 }
 
 function Footer() {
-  const { textos } = useIdioma()
+  const { idioma, textos } = useIdioma()
   // `id` muda a cada clique pra remontar o toast e reiniciar a animação
   const [toast, setToast] = useState<Toast | null>(null)
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined)
@@ -72,7 +72,7 @@ function Footer() {
 
                 <span className="canal-texto">
                   <Rotulo>{label}</Rotulo>
-                  <span className="canal-valor">{canal.valor}</span>
+                  <span className="canal-valor">{typeof canal.valor === 'string' ? canal.valor : canal.valor[idioma]}</span>
                   <span className="canal-acao">{acao}</span>
                 </span>
 

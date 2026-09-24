@@ -17,6 +17,7 @@ export const pt = {
   navbar: {
     trajetoria: 'trajetória',
     experiencia: 'experiência',
+    projetos: 'projetos',
     contato: 'contato',
     menu: 'menu',
     fechar: 'fechar',
@@ -60,6 +61,10 @@ export const pt = {
   experiencia: {
     titulo: 'Experiência',
     atual: 'atual',
+  },
+
+  projetos: {
+    titulo: 'Projetos',
   },
 
   contato: {

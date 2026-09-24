@@ -18,6 +18,7 @@ export interface Textos {
   navbar: {
     trajetoria: string
     experiencia: string
+    projetos: string
     contato: string
     menu: string
     fechar: string
@@ -42,6 +43,9 @@ export interface Textos {
     titulo: string
     atual: string
   }
+  projetos: {
+    titulo: string
+  }
   contato: {
     titulo: string
     intro: string
@@ -54,7 +58,7 @@ export type CanalId = 'whatsapp' | 'email' | 'linkedin' | 'github'
 
 export interface Canal {
   id: CanalId
-  valor: string
+  valor: string | Bilingue
   href: string
   externo?: boolean
   copiar?: string
@@ -78,4 +82,32 @@ export interface EmpresaExperiencia {
   local: Bilingue
   stack: string[]
   cargos: Cargo[]
+}
+
+export interface ProjetoLink {
+  rotulo: Bilingue
+  href: string
+}
+
+export interface Projeto {
+  /** Chave estável do projeto. */
+  id: string
+  /** Título mostrado abaixo da imagem. */
+  nome: string
+  empresa: string
+  descricao: Bilingue
+  /** O que eu fiz. Aceita `**destaque**` (ver TextoDestacado). */
+  papel: Bilingue
+  stack: string[]
+  links: ProjetoLink[]
+  /** Print do projeto; quando ausente, a janela não mostra imagem. */
+  imagem?: string
+  /** Versão da imagem para o tema claro; quando presente, `imagem` vale só para o tema escuro. */
+  imagemClara?: string
+  /** Como a imagem preenche o topo do card: 'cobrir' (padrão, corta) ou 'conter' (mostra inteira, ex.: logo). */
+  imagemAjuste?: 'cobrir' | 'conter'
+  /** Cor de fundo atrás da imagem quando ela é 'conter'. */
+  imagemFundo?: string
+  /** Cor de fundo no tema claro, quando há `imagemClara`. */
+  imagemFundoClara?: string
 }

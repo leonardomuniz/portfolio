@@ -32,6 +32,7 @@ function Navbar() {
   const links = [
     { href: '#trajetoria', label: textos.navbar.trajetoria },
     { href: '#experiencia', label: textos.navbar.experiencia },
+    { href: '#projetos', label: textos.navbar.projetos },
     { href: '#contato', label: textos.navbar.contato },
   ]
 

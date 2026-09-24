@@ -15,6 +15,7 @@ export const en = {
   navbar: {
     trajetoria: 'Background',
     experiencia: 'Experience',
+    projetos: 'Projects',
     contato: 'Contact',
     menu: 'Menu',
     fechar: 'Close',
@@ -58,6 +59,10 @@ export const en = {
   experiencia: {
     titulo: 'Experience',
     atual: 'present',
+  },
+
+  projetos: {
+    titulo: 'Projects',
   },
 
   contato: {
