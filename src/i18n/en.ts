@@ -26,7 +26,7 @@ export const en = {
 
   hero: {
     saudacao: "Hi, I'm Léo Muniz",
-    cargo: '// back-end developer · node.js',
+    cargo: '// back-end developer',
     descricao:
       'Leonardo Campos Muniz, 4+ years building back-ends in Node.js — ' +
       'the most recent as Tech Lead of a squad of 4. My work is usually the same: ' +

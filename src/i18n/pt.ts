@@ -28,7 +28,7 @@ export const pt = {
 
   hero: {
     saudacao: 'Olá, eu sou o Léo Muniz',
-    cargo: '// desenvolvedor back-end · node.js',
+    cargo: '// desenvolvedor back-end',
     descricao:
       'Leonardo Campos Muniz, 4+ anos construindo back-end em Node.js — ' +
       'os últimos como Tech Lead de uma squad de 4 pessoas. Meu trabalho costuma ' +
