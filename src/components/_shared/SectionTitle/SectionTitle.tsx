@@ -13,7 +13,7 @@ interface SectionTitleProps {
 function SectionTitle({ children }: SectionTitleProps) {
   return (
     <h2 className="section-title">
-      <span className="section-prompt">//</span> {children}
+      <span className="section-prompt" aria-hidden="true">//</span> {children}
     </h2>
   )
 }

@@ -7,9 +7,13 @@
   margin-bottom: 26px;
 }
 
-/* resquício de código: só um `//` discreto, sem comando falso */
+/* resquício de código: só um `//` discreto, sem comando falso.
+   Usa o azul médio nos dois temas, e não o -ink: no claro o -ink
+   escurece pra dar contraste a texto corrido e o `//` ficava quase
+   da cor do título. É decorativo (aria-hidden), então pode ser mais
+   suave que o texto. */
 .section-prompt {
-  color: var(--accent-azul-ink);
+  color: var(--accent-azul);
   font-weight: 400;
   font-size: 0.95rem;
 }
