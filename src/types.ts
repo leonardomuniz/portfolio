@@ -34,6 +34,8 @@ export interface Textos {
     baixarCurriculo: string
     /** Caminho do PDF em public/, um por idioma. */
     curriculo: string
+    /** Texto alternativo do retrato ao lado do terminal. */
+    fotoAlt: string
   }
   trajetoria: {
     titulo: string

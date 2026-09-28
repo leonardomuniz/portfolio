@@ -35,6 +35,7 @@ export const en = {
     faleComigo: 'Get in Touch',
     baixarCurriculo: 'Download Resume',
     curriculo: '/curriculo-leonardo-muniz-en.pdf',
+    fotoAlt: 'Photo of Léo Muniz',
   },
 
   trajetoria: {

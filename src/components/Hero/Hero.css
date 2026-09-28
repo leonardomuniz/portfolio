@@ -2,9 +2,41 @@
   padding: 32px 16px 24px;
 }
 
-.terminal-window {
+/* ==========================================================
+   GRADE: TERMINAL + RETRATO
+   No celular o retrato vem antes do terminal (order: -1),
+   pequeno e centralizado. A partir de 960px os dois dividem
+   a largura 70/30, com o retrato à direita.
+=========================================================== */
+.hero-grade {
   max-width: var(--max-width);
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-retrato {
+  order: -1;
+  width: min(220px, 60%);
+  margin: 0 auto;
+}
+
+@media (min-width: 960px) {
+  .hero-grade {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 3fr);
+    align-items: center;
+    gap: 40px;
+  }
+
+  .hero-retrato {
+    order: 0;
+    width: 100%;
+  }
+}
+
+.terminal-window {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: 8px 8px 4px 4px;

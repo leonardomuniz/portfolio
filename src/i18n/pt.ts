@@ -37,6 +37,7 @@ export const pt = {
     faleComigo: 'Fale Comigo',
     baixarCurriculo: 'Baixar Currículo',
     curriculo: '/curriculo-leonardo-muniz-pt.pdf',
+    fotoAlt: 'Foto de Léo Muniz',
   },
 
   trajetoria: {

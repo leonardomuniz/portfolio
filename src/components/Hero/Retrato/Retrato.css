@@ -1,0 +1,74 @@
+/* ==========================================================
+   RETRATO
+   As três fotos ocupam a mesma célula de grid e trocam num
+   loop de 15s (5s cada). Em cada troca, a foto que sai só
+   some depois que a que entra já está quase inteira — num
+   fade cruzado simples as duas passam juntas por 50% e o
+   rosto "apaga" no meio da troca.
+   O empilhamento segue o DOM: a 1 fica embaixo e reaparece
+   por baixo da 3 antes de a 3 sumir, fechando o loop.
+   O tamanho e a posição quem decide é o Hero.
+=========================================================== */
+.retrato {
+  position: relative;
+}
+
+/* halo terracota atrás da cabeça, pra ela não ficar solta no fundo */
+.retrato::before {
+  content: '';
+  position: absolute;
+  inset: 4% 2% 20%;
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--accent-terracota) 24%, transparent),
+    transparent
+  );
+}
+
+.retrato-flutua {
+  position: relative;
+  display: grid;
+  animation: retrato-flutua 7s ease-in-out infinite alternate;
+}
+
+.retrato-foto {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: auto;
+}
+
+.retrato-foto:nth-child(1) { animation: retrato-foto-1 15s infinite; }
+.retrato-foto:nth-child(2) { animation: retrato-foto-2 15s infinite; opacity: 0; }
+.retrato-foto:nth-child(3) { animation: retrato-foto-3 15s infinite; opacity: 0; }
+
+/* 1: visível de 0 a 5s; some quando a 2 já entrou; volta
+   por baixo da 3 no fim do ciclo */
+@keyframes retrato-foto-1 {
+  0%, 36% { opacity: 1; }
+  40%, 94.67% { opacity: 0; }
+  98.67%, 100% { opacity: 1; }
+}
+
+/* 2: entra aos 5s por cima da 1; sai quando a 3 já entrou */
+@keyframes retrato-foto-2 {
+  0%, 33.33% { opacity: 0; }
+  38.67%, 69.33% { opacity: 1; }
+  73.33%, 100% { opacity: 0; }
+}
+
+/* 3: entra aos 10s por cima da 2; sai no fim, revelando a 1 */
+@keyframes retrato-foto-3 {
+  0%, 66.67% { opacity: 0; }
+  72%, 96% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes retrato-flutua {
+  from { transform: translateY(0); }
+  to { transform: translateY(-12px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .retrato-flutua,
+  .retrato-foto { animation: none; }
+}
