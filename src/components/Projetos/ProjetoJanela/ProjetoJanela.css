@@ -1,19 +1,23 @@
+/* ==========================================================
+   JANELA DE PROJETO
+   Card sem imagem: a janela de terminal do Hero em miniatura.
+   O destaque no hover (e no foco de teclado dentro do card) é
+   só de cor e sombra — nada sobe nem cresce, porque o card em
+   si não é link; quem leva a algum lugar são os links do rodapé.
+=========================================================== */
 .projeto {
+  display: flex;
+  flex-direction: column;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: 8px 8px 4px 4px;
   overflow: hidden;
-  transition: border-color 250ms ease, box-shadow 250ms ease, transform 250ms ease;
+  transition: border-color 250ms ease, box-shadow 250ms ease;
 }
 
-.projeto {
-  display: flex;
-  flex-direction: column;
-}
-
-.projeto:hover {
-  transform: scale(1.05);
-  border-color: var(--border-strong);
+.projeto:hover,
+.projeto:has(:focus-visible) {
+  border-color: var(--accent-terracota-ink);
   box-shadow: 0 18px 44px var(--shadow-soft);
 }
 
@@ -22,19 +26,13 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  width: 100%;
-  margin: 0;
   padding: 10px 14px;
   background: var(--bg-raised);
+  border-bottom: 1px solid var(--border-subtle);
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--text-muted);
-  text-align: left;
-}
-
-.projeto-barra {
-  border-bottom: 1px solid var(--border-subtle);
 }
 
 .projeto-dots {
@@ -48,53 +46,81 @@
   height: 11px;
   border-radius: 50%;
   display: inline-block;
+  transition: background-color 250ms ease;
 }
 
 .projeto-dot-red { background: var(--accent-red); }
 .projeto-dot-terracota { background: var(--accent-terracota); }
 .projeto-dot-bege { background: var(--accent-bege); }
 
+/* Janela sem foco: onde existe mouse, as bolinhas ficam apagadas e
+   acendem no hover, como nas janelas inativas do macOS. No toque não
+   há hover, então lá elas ficam sempre acesas. */
+@media (hover: hover) {
+  .projeto:not(:hover):not(:has(:focus-visible)) .projeto-dot {
+    background: var(--icon-idle);
+  }
+}
+
 .projeto-empresa {
+  margin-left: auto;
   color: var(--text-body);
   white-space: nowrap;
-  margin-left: auto;
 }
 
 /* ---------- corpo ---------- */
 .projeto-corpo {
-  padding: 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 14px;
+  padding: 22px 22px 20px;
+}
+
+/* o mesmo prompt do terminal do Hero, em tamanho de card */
+.projeto-prompt {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent-azul-ink);
 }
 
 .projeto-titulo {
-  margin: 0;
   font-size: 1.15rem;
   font-weight: 600;
   color: var(--text-primary);
+  transition: color 200ms ease;
+}
+
+.projeto:hover .projeto-titulo,
+.projeto:has(:focus-visible) .projeto-titulo {
+  color: var(--accent-bege-ink);
 }
 
 .projeto-descricao {
-  margin: 0;
   color: var(--text-primary);
 }
 
+/* o tracejado separa o que é o produto do que eu fiz nele */
 .projeto-papel {
-  margin: 0;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border-subtle);
+  font-size: 0.95rem;
   color: var(--text-body);
 }
 
-.projeto-imagem {
-  width: 100%;
-  border-bottom: 1px solid var(--border-subtle);
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  object-position: top;
+/* ---------- rodapé: stack e links ---------- */
+.projeto-rodape {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
 }
 
-.projeto-imagem.is-conter { object-fit: contain; }
+/* align-content: no subgrid a linha da stack tem a altura da stack mais
+   alta; sem isso, as linhas de chips de um card mais curto se espalham
+   para ocupar a sobra em vez de ficarem juntas no topo */
 .projeto-stack,
 .projeto-links {
   list-style: none;
@@ -102,10 +128,9 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   gap: 8px;
 }
-
-.projeto-stack { margin-top: auto; }
 
 .projeto-links { gap: 8px 20px; }
 
@@ -127,7 +152,8 @@
 }
 
 /* No desktop os cards compartilham as linhas da lista (subgrid), então
-   barra, imagem, título, textos, stack e links ficam alinhados entre eles. */
+   barra, prompt, título, descrição, texto, stack e links ficam
+   alinhados entre eles — inclusive o tracejado e a linha do rodapé. */
 @media (min-width: 960px) {
   .projeto {
     display: grid;
@@ -138,16 +164,19 @@
 
   .projeto-corpo {
     display: grid;
-    grid-row: span 5;
+    grid-row: span 6;
     grid-template-rows: subgrid;
     row-gap: 14px;
-    align-content: stretch;
   }
 
-  .projeto-stack { margin-top: 0; align-content: end; }
-  .projeto-links { align-content: end; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .projeto:hover { transform: none; }
+  /* O rodapé também é subgrid, com duas linhas: a stack e os links. Sem
+     isso, o card de stack mais curta subia os links. A margem automática
+     sai porque, com as linhas compartilhadas, ela empurraria o rodapé só
+     nos cards mais curtos e desalinharia a linha de cima dele. */
+  .projeto-rodape {
+    display: grid;
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+    margin-top: 0;
+  }
 }

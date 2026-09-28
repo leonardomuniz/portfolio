@@ -94,24 +94,18 @@ export interface ProjetoLink {
 }
 
 export interface Projeto {
-  /** Chave estável do projeto. */
+  /** Chave estável do projeto; também é o nome do arquivo no prompt do card. */
   id: string
-  /** Título mostrado abaixo da imagem. */
+  /** Título do card. */
   nome: string
   empresa: string
+  /** O que é o produto, numa frase. */
   descricao: Bilingue
-  /** O que eu fiz. Aceita `**destaque**` (ver TextoDestacado). */
+  /**
+   * O que eu fiz, em texto corrido: o problema, o que eu fiz e o
+   * resultado, sem rótulos. Aceita `**destaque**` (ver TextoDestacado).
+   */
   papel: Bilingue
   stack: string[]
   links: ProjetoLink[]
-  /** Print do projeto; quando ausente, a janela não mostra imagem. */
-  imagem?: string
-  /** Versão da imagem para o tema claro; quando presente, `imagem` vale só para o tema escuro. */
-  imagemClara?: string
-  /** Como a imagem preenche o topo do card: 'cobrir' (padrão, corta) ou 'conter' (mostra inteira, ex.: logo). */
-  imagemAjuste?: 'cobrir' | 'conter'
-  /** Cor de fundo atrás da imagem quando ela é 'conter'. */
-  imagemFundo?: string
-  /** Cor de fundo no tema claro, quando há `imagemClara`. */
-  imagemFundoClara?: string
 }
