@@ -4,22 +4,19 @@
 
 /* ==========================================================
    GRADE: TERMINAL + RETRATO
-   No celular o retrato vem antes do terminal (order: -1),
-   pequeno e centralizado. A partir de 960px os dois dividem
-   a largura 70/30, com o retrato à direita.
+   Mesma largura dos Projetos (--max-width-wide), mais larga que
+   as seções de texto. A partir de 960px terminal e retrato
+   dividem a largura 70/30. Abaixo disso o retrato não aparece:
+   empilhado em cima do terminal, ficava um rosto solto acima da
+   janela.
 =========================================================== */
 .hero-grade {
-  max-width: var(--max-width);
+  max-width: var(--max-width-wide);
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
 .hero-retrato {
-  order: -1;
-  width: min(220px, 60%);
-  margin: 0 auto;
+  display: none;
 }
 
 @media (min-width: 960px) {
@@ -31,8 +28,7 @@
   }
 
   .hero-retrato {
-    order: 0;
-    width: 100%;
+    display: block;
   }
 }
 

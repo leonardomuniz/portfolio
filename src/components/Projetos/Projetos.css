@@ -11,7 +11,7 @@
   .projeto-lista {
     grid-template-columns: repeat(3, 1fr);
     /* Escapa do container da seção para ficar mais largo que o resto. */
-    width: min(1320px, calc(100vw - 64px));
+    width: min(var(--max-width-wide), calc(100vw - 64px));
     position: relative;
     left: 50%;
     transform: translateX(-50%);

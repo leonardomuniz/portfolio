@@ -11,6 +11,9 @@ const FOTOS = ['/foto_leo_1.webp', '/foto_leo_2.webp', '/foto_leo_3.webp']
  * as três fotos em loop. Só a primeira é anunciada ao leitor de tela — as
  * outras são a mesma pessoa e ficam aria-hidden. Com movimento reduzido,
  * fica só a primeira foto, parada.
+ *
+ * No celular o Hero esconde o retrato (display: none); com loading="lazy"
+ * as fotos nem são baixadas lá, porque imagem sem caixa nunca "entra" na tela.
  */
 function Retrato() {
   const { textos } = useIdioma()
@@ -27,6 +30,7 @@ function Retrato() {
             aria-hidden={i === 0 ? undefined : true}
             width={720}
             height={900}
+            loading="lazy"
             decoding="async"
           />
         ))}
