@@ -2,7 +2,13 @@ import { useEffect, useState } from 'react'
 import { SunIcon, MoonIcon } from '../Icons/Icons'
 import { lerTema, outroTema, aplicarTema, escutarSistema, type Tema } from '../../utils/tema'
 import { useIdioma } from '../../i18n/idioma'
+import { useSecaoAtiva } from '../../hooks/useSecaoAtiva'
 import './Navbar.css'
+
+// Seções linkadas, na ordem da página. O id é o da seção e também a
+// chave do rótulo em textos.navbar. Fica fora do componente porque o
+// useSecaoAtiva se reinscreve no scroll se o array mudar de identidade.
+const SECOES = ['trajetoria', 'experiencia', 'projetos', 'contato'] as const
 
 // O botão de tema mostra o destino, não o atual: no escuro
 // aparece o sol, porque é nele que o clique vai dar. O de
@@ -17,6 +23,7 @@ function Navbar() {
   const [open, setOpen] = useState(false)
   // Estado inicial vem do <html>, já resolvido pelo script inline.
   const [tema, setTema] = useState(lerTema)
+  const { ativa, marcar } = useSecaoAtiva(SECOES)
 
   useEffect(() => escutarSistema((novo) => {
     setTema(novo)
@@ -29,13 +36,6 @@ function Navbar() {
     aplicarTema(novo)
   }
 
-  const links = [
-    { href: '#trajetoria', label: textos.navbar.trajetoria },
-    { href: '#experiencia', label: textos.navbar.experiencia },
-    { href: '#projetos', label: textos.navbar.projetos },
-    { href: '#contato', label: textos.navbar.contato },
-  ]
-
   const { Icon, chave } = TEMA[tema]
   const rotuloTema = textos.navbar[chave]
   const proximoIdioma = idioma === 'pt' ? 'EN' : 'PT'
@@ -46,9 +46,18 @@ function Navbar() {
         <a href="#topo" className="navbar-brand">leo@portfolio:~$</a>
 
         <ul id="navbar-links" className={`navbar-links ${open ? 'is-open' : ''}`}>
-          {links.map((link) => (
-            <li key={link.href}>
-              <a href={link.href} onClick={() => setOpen(false)}>{link.label}</a>
+          {SECOES.map((id) => (
+            <li key={id}>
+              <a
+                href={`#${id}`}
+                aria-current={ativa === id ? 'location' : undefined}
+                onClick={() => {
+                  setOpen(false)
+                  marcar(id)
+                }}
+              >
+                {textos.navbar[id]}
+              </a>
             </li>
           ))}
         </ul>

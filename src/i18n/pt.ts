@@ -15,12 +15,12 @@ export const pt = {
   },
 
   navbar: {
-    trajetoria: 'trajetória',
-    experiencia: 'experiência',
-    projetos: 'projetos',
-    contato: 'contato',
-    menu: 'menu',
-    fechar: 'fechar',
+    trajetoria: 'Trajetória',
+    experiencia: 'Experiência',
+    projetos: 'Projetos',
+    contato: 'Contato',
+    menu: 'Menu',
+    fechar: 'Fechar',
     trocarIdioma: 'Switch to English',
     temaClaro: 'Mudar para o tema claro',
     temaEscuro: 'Mudar para o tema escuro',

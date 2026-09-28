@@ -13,12 +13,12 @@ export const en = {
   },
 
   navbar: {
-    trajetoria: 'background',
-    experiencia: 'experience',
-    projetos: 'projects',
-    contato: 'contact',
-    menu: 'menu',
-    fechar: 'close',
+    trajetoria: 'Background',
+    experiencia: 'Experience',
+    projetos: 'Projects',
+    contato: 'Contact',
+    menu: 'Menu',
+    fechar: 'Close',
     trocarIdioma: 'Switch to Portuguese',
     temaClaro: 'Switch to the light theme',
     temaEscuro: 'Switch to the dark theme',

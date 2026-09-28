@@ -177,6 +177,16 @@
   color: var(--accent-terracota-ink);
 }
 
+/* ==========================================================
+   LINK DA SEÇÃO ATUAL
+   aria-current marca a seção que está na tela (useSecaoAtiva).
+   Mesma cor do hover e, no desktop, um traço embaixo — é o
+   traço que diferencia "estou aqui" de "o mouse está aqui".
+=========================================================== */
+.navbar-links a[aria-current] {
+  color: var(--accent-terracota-ink);
+}
+
 @media (min-width: 640px) {
   .navbar-links {
     display: flex;
@@ -190,10 +200,32 @@
   }
 
   .navbar-links a {
+    position: relative;
     padding: 0;
     border-bottom: none;
   }
 
+  .navbar-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    background: var(--accent-terracota-ink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 220ms ease;
+  }
+
+  .navbar-links a[aria-current]::after {
+    transform: scaleX(1);
+  }
+
   /* no desktop os links já empurraram tudo pra direita */
   .navbar-actions { margin-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-links a::after { transition: none; }
 }
