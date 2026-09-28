@@ -25,13 +25,15 @@ export const en = {
   },
 
   hero: {
-    saudacao: "Hi, I'm Léo Muniz",
-    cargo: '// back-end developer',
+    // \u00A0 is a non-breaking space: the name never splits across lines
+    saudacao: "Hi, I'm Léo\u00A0Muniz",
+    cargo: '// senior back-end developer',
     descricao:
-      'Leonardo Campos Muniz, 4+ years building back-ends in Node.js — ' +
-      'the most recent as Tech Lead of a squad of 4. My work is usually the same: ' +
-      'take a system that already exists, is slow or hard to maintain, and hand it ' +
-      'back fast, tested and built to last.',
+      '4+ years building back-ends in Node.js — most recently as Tech Lead of a ' +
+      'squad of 4 at Poder360. My work is usually the same: take an existing ' +
+      "system that's slow or hard to maintain, and hand it back fast, tested " +
+      'and built to last.',
+    disponibilidade: 'open to work · employee or contractor · remote or hybrid',
     faleComigo: 'Get in Touch',
     baixarCurriculo: 'Download Resume',
     curriculo: '/curriculo-leonardo-muniz-en.pdf',

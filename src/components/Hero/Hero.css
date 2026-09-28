@@ -6,9 +6,9 @@
    GRADE: TERMINAL + RETRATO
    Mesma largura dos Projetos (--max-width-wide), mais larga que
    as seções de texto. A partir de 960px terminal e retrato
-   dividem a largura 70/30. Abaixo disso o retrato não aparece:
-   empilhado em cima do terminal, ficava um rosto solto acima da
-   janela.
+   dividem a largura 70/30. Abaixo disso o retrato dá lugar ao
+   avatar, dentro da janela (ver SAUDAÇÃO + AVATAR): empilhado em
+   cima do terminal, ficava um rosto solto acima da janela.
 =========================================================== */
 .hero-grade {
   max-width: var(--max-width-wide);
@@ -87,7 +87,7 @@
 }
 
 .hero-greeting {
-  font-size: 1.9rem;
+  font-size: 1.5rem;
   color: var(--text-primary);
   letter-spacing: -0.01em;
   line-height: 1.25;
@@ -135,6 +135,50 @@
   .cursor-piscando { animation: none; }
 }
 
+/* ==========================================================
+   SAUDAÇÃO + AVATAR
+   Abaixo de 960px o avatar fica à direita da saudação, e o
+   texto segue alinhado à esquerda com o resto da janela. O
+   fundo é o halo terracota do retrato: a foto não tem fundo e,
+   sem ele, o rosto ficaria recortado no vazio.
+=========================================================== */
+.hero-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hero-avatar {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--accent-terracota) 30%, var(--bg-raised)),
+    var(--bg-raised)
+  );
+}
+
+/* Com o avatar ao lado, a saudação só cabe em duas linhas se a fonte
+   crescer junto com a tela: 1.5rem até 360px, 1.75rem nos 360 de boa
+   parte dos Androids e, a partir de 380px, fonte e avatar cheios. */
+@media (min-width: 360px) {
+  .hero-greeting { font-size: 1.75rem; }
+}
+
+@media (min-width: 380px) {
+  .hero-titulo { gap: 16px; }
+  .hero-avatar { width: 64px; height: 64px; }
+  .hero-greeting { font-size: 1.9rem; }
+}
+
+@media (min-width: 960px) {
+  .hero-avatar { display: none; }
+}
+
 .hero-role {
   font-family: var(--font-mono);
   font-weight: 600;
@@ -150,11 +194,51 @@
   font-size: 1.02rem;
 }
 
+/* ==========================================================
+   DISPONIBILIDADE
+   Linha de status em mono, com a bolinha de "online" na cor de
+   ação. A bolinha acompanha a primeira linha (0.5em de margem a
+   centraliza nela), porque no celular o texto quebra em duas.
+=========================================================== */
+.hero-disponivel {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.hero-disponivel::before {
+  content: '';
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin-top: 0.5em;
+  border-radius: 50%;
+  background: var(--accent-terracota);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-terracota) 25%, transparent);
+}
+
+/* No celular os dois botões não cabem lado a lado: cada um cresce
+   até ocupar a linha inteira, em vez de empilharem com larguras
+   diferentes. Onde cabem, dividem a linha. A partir de 640px voltam
+   ao tamanho do texto. */
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 26px;
+}
+
+.hero-actions .btn {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .hero-actions .btn { flex: 0 1 auto; }
 }
 
 /* ==========================================================

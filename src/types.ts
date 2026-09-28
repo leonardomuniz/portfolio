@@ -30,6 +30,8 @@ export interface Textos {
     saudacao: string
     cargo: string
     descricao: string
+    /** Linha de status abaixo da descrição: disponibilidade, regime e modalidade. */
+    disponibilidade: string
     faleComigo: string
     baixarCurriculo: string
     /** Caminho do PDF em public/, um por idioma. */

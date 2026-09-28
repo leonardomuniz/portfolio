@@ -27,13 +27,15 @@ export const pt = {
   },
 
   hero: {
-    saudacao: 'Olá, eu sou o Léo Muniz',
-    cargo: '// desenvolvedor back-end',
+    // \u00A0 é espaço que não quebra: o nome nunca se divide em duas linhas
+    saudacao: 'Olá, eu sou o Léo\u00A0Muniz',
+    cargo: '// desenvolvedor back-end sênior',
     descricao:
-      'Leonardo Campos Muniz, 4+ anos construindo back-end em Node.js — ' +
-      'os últimos como Tech Lead de uma squad de 4 pessoas. Meu trabalho costuma ' +
-      'ser o mesmo: pegar um sistema que já existe, está lento ou difícil de ' +
-      'manter, e devolver ele rápido, testado e pronto pra durar.',
+      '4+ anos construindo back-end em Node.js — mais recentemente como Tech Lead ' +
+      'de uma squad de 4 pessoas no Poder360. Meu trabalho costuma ser o mesmo: ' +
+      'pegar um sistema que já existe, lento ou difícil de manter, e devolvê-lo ' +
+      'rápido, testado e pronto pra durar.',
+    disponibilidade: 'disponível · CLT ou PJ · remoto ou híbrido',
     faleComigo: 'Fale Comigo',
     baixarCurriculo: 'Baixar Currículo',
     curriculo: '/curriculo-leonardo-muniz-pt.pdf',

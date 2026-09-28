@@ -36,27 +36,45 @@ function Hero() {
           <div className="terminal-body">
             <p className="terminal-prompt">$ echo $SAUDACAO</p>
 
-            {/* O texto digitado é aria-hidden pra ninguém ouvir letra
-                por letra; o aria-label entrega a frase inteira ao
-                leitor de tela. O "fantasma" é a mesma frase invisível
-                ocupando o espaço final: sem ele, o h1 cresce de uma
-                linha pra duas no meio da digitação e empurra a página. */}
-            <h1 className="hero-greeting" aria-label={textos.hero.saudacao}>
-              <span className="digitacao" aria-hidden="true">
-                <span className="digitacao-fantasma">
-                  {textos.hero.saudacao}<span className="cursor">▮</span>
-                </span>
+            <div className="hero-titulo">
+              {/* O texto digitado é aria-hidden pra ninguém ouvir letra
+                  por letra; o aria-label entrega a frase inteira ao
+                  leitor de tela. O "fantasma" é a mesma frase invisível
+                  ocupando o espaço final: sem ele, o h1 cresce de uma
+                  linha pra duas no meio da digitação e empurra a página. */}
+              <h1 className="hero-greeting" aria-label={textos.hero.saudacao}>
+                <span className="digitacao" aria-hidden="true">
+                  <span className="digitacao-fantasma">
+                    {textos.hero.saudacao}<span className="cursor">▮</span>
+                  </span>
 
-                <span className="digitacao-texto">
-                  {escrito}
-                  <span className={`cursor ${completo ? 'cursor-piscando' : ''}`}>▮</span>
+                  <span className="digitacao-texto">
+                    {escrito}
+                    <span className={`cursor ${completo ? 'cursor-piscando' : ''}`}>▮</span>
+                  </span>
                 </span>
-              </span>
-            </h1>
+              </h1>
+
+              {/* Avatar do celular: onde o retrato grande some, o rosto
+                  continua na primeira tela. Os dois nunca aparecem juntos,
+                  por isso dividem o mesmo texto alternativo. Com
+                  loading="lazy", o desktop nem baixa o arquivo. */}
+              <img
+                className="hero-avatar"
+                src="/foto_leo_avatar.webp"
+                alt={textos.hero.fotoAlt}
+                width={64}
+                height={64}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
 
             <p className="hero-role">{textos.hero.cargo}</p>
 
             <p className="hero-desc"><TextoDestacado>{textos.hero.descricao}</TextoDestacado></p>
+
+            <p className="hero-disponivel">{textos.hero.disponibilidade}</p>
 
             <div className="hero-actions">
               <Button href="#contato">{textos.hero.faleComigo}</Button>
